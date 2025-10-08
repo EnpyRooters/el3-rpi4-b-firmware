@@ -4,9 +4,12 @@ This is firmware source code that is in it's early development stages that initi
 # building
 commands:
 git clone https://github.com/EnpyRooters/el3-rpi4-b-firmware
+
 cd el3-rpi4-b-firmware
+
 sudo python3 make.py
-arm-none-eabi-objcopy -O binary aft_firmware atf.bin
+
+objcopy -O binary aft_firmware atf.bin
 
 # using
 DANGER! MAY BRICK OR CAUSE BOOT FAILURE!
