@@ -2,7 +2,7 @@
 typedef void (*kernel_entry_t)(void);
 
 // This is an external function you might jump to later
-extern void external_function(void);
+extern void secure_memory(void);
 
 // Simple delay loop (rough approximation, since we don't have timers)
 void delay(volatile unsigned int count) {
@@ -14,7 +14,7 @@ void delay(volatile unsigned int count) {
 // The "stub" main
 void kernel(void) {
     // Kernel address
-    uintptr_t kernel_addr = 0x212345;
+    uintptr_t kernel_addr = 0x200000;
     kernel_entry_t kernel_entry = (kernel_entry_t)kernel_addr;
 
     // Optional: small delay before jumping
@@ -24,7 +24,7 @@ void kernel(void) {
     kernel_entry();
 
     // If the kernel returns (usually it won't), jump to external function
-    external_function();
+    secure_memeory();
 
     // If all else fails, loop forever
     while (1) {
