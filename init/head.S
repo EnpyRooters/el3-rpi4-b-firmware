@@ -11,7 +11,7 @@
 
 .section .text
 .global _start
-.extern secure_memory        /* C function: void el3_main(void) */
+.extern kernel        /* C function: void el3_main(void) */
 
 /* ---------------------- CONSTANTS --------------------------- */
 /* Physical memory regions */
@@ -80,7 +80,7 @@ serror_handler:
 
 /* -------------- START / PRIMARY INITIALIZATION --------------- */
 _start:
-    b secure_memory
+    b kernel
     /* Mask all exceptions while we init */
     msr daifset, #0xf
 
