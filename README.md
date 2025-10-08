@@ -9,7 +9,7 @@ cd el3-rpi4-b-firmware
 
 sudo python3 make.py
 
-objcopy -O binary aft_firmware atf.bin
+objcopy -O binary --only-section=.text --gap-fill=0x00 aft_firmware atf.bin
 
 # using
 DANGER! MAY BRICK OR CAUSE BOOT FAILURE!
